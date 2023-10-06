@@ -2,30 +2,30 @@
 
 <%= search_form_for @q, html: {"data-controller": "filters", "data-turbo-frame": "table"} do |f| %>
   <div>
-  <%= f.label :name_cont %>
-  <%= f.search_field :name_cont, "data-action": "filters#submit" %>
+    <%= f.label :name_cont %>
+    <%= f.search_field :name_cont, "data-action": "filters#submit", class: "form-control" %>
   </div>
 
   <div>
-  <%= f.label :category_eq %>
-  <%= f.select :category_eq, Product.categories, {include_blank: true}, {"data-action": "filters#submit"} %>
+    <%= f.label :category_eq %>
+    <%= f.select :category_eq, Product.categories, {include_blank: true}, {class: "form-select", "data-action": "filters#submit"}%>
   </div>
 
   <div>
-  <%= f.label :price_gt %>
-  <%= f.search_field :price_gt, "data-action": "filters#submit" %>
+    <%= f.label :price_gt, class: "form-label" %>
+    <%= f.search_field :price_gt, "data-action": "filters#submit", class: "form-control" %>
   </div>
 
   <div>
   <%= f.label :price_lt %>
-  <%= f.search_field :price_lt, "data-action": "filters#submit" %>
+  <%= f.search_field :price_lt, "data-action": "filters#submit", class: "form-control"  %>
   </div>
 <% end %>
 
 <%= turbo_frame_tag "table" do %>
   <p class="loading">Loading...</p>
-
-  <table>
+  <% if @products.count > 0 %>
+  <table class="table table-dark">
     <thead>
       <tr>
         <th><%= sort_link(@q, :name) %></th>
@@ -37,6 +37,9 @@
       <%= render @products %>
     </tbody>
   </table>
+  <%= raw pagy_bootstrap_nav(@pagy) %>
+  <% else %>
+    <p>There are no products that match this criteria.</p>
+  <% end %>
 
-  <%= raw pagy_nav(@pagy) %>
 <% end %>

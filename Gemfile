@@ -1,16 +1,16 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "3.0.0"
+ruby "3.0.2"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem "rails", "~> 7.0.3", ">= 7.0.3.1"
+gem "rails", "~> 7.0.7"
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
-# Use postgresql as the database for Active Record
-gem "pg", "~> 1.1"
+# Use sqlite3 as the database for Active Record
+gem "sqlite3", "~> 1.4"
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
@@ -26,6 +26,8 @@ gem "stimulus-rails"
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
+
+gem "bootstrap"
 
 # Use Redis adapter to run Action Cable in production
 gem "redis", "~> 4.0"
@@ -43,10 +45,10 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
 
 # Use Sass to process CSS
-# gem "sassc-rails"
+gem "sassc-rails"
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
-# gem "image_processing", "~> 1.2"
+gem "image_processing", "~> 1.2"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -67,12 +69,24 @@ end
 gem "rexml"
 gem "ffaker"
 gem "ruby_styler"
-gem "ransack"
-gem "pagy", "~> 5.6"
 
 group :development, :test do
   gem "rspec-rails"
   gem "capybara"
+  gem "selenium-webdriver"
   gem "webdrivers"
   gem "factory_bot_rails"
 end
+
+gem "devise"
+
+gem "noticed", "~> 1.6"
+
+gem "ransack", "~> 4.0"
+
+gem 'friendly_id', '~> 5.4.0'
+gem "pagy", "~> 6.0"
+
+gem "bullet", "~> 7.0"
+
+gem "wicked", "~> 2.0"

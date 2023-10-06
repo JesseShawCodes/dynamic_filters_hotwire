@@ -15,9 +15,10 @@
  */
 
 @import "https://unpkg.com/open-props";
- 
+@import "bootstrap";
+@import "trix";
 * { box-sizing: border-box; }
-
+/*
 body {
   font-family: var(--font-sans);
   font-size: var(--font-size-1);
@@ -84,6 +85,6 @@ td { padding-top: var(--size-2); }
 
 .pagy-nav { padding: var(--size-7) 0; }
 .pagy-nav .page { padding: 0 var(--size-1); }
-
+*/
 .loading { visibility: hidden; }
 turbo-frame[busy] .loading { visibility: visible; }
